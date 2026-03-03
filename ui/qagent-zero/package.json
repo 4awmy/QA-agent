@@ -1,6 +1,6 @@
 {
   "name": "qagent-zero",
-  "displayName": "✔ What type of extension do you want to create? New Extension (TypeScript)",
+  "displayName": "QAgent Zero",
   "description": "AI-powered test generator",
   "version": "0.0.1",
   "engines": {
@@ -14,10 +14,18 @@
   "contributes": {
     "commands": [
       {
-        "command": "qagent-zero.helloWorld",
-        "title": "Hello World"
+        "command": "qagent.generateTest",
+        "title": "Generate Test"
       }
-    ]
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "qagent.generateTest",
+          "when": "editorLangId == java"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
