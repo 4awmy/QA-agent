@@ -1,9 +1,9 @@
-# UI & Workspace Team API Contract
+# AI & Backend Team API Contract
 
-This document outlines the exact data structures your UI extension code needs to send and receive.
+This document outlines the exact data structures your Express.js API needs to receive and send.
 
-## 1. You Send: UI -> AI Request
-When the user highlights code and right-clicks "Generate Test", you must capture and send this payload to the AI API (Neriman/Mariam):
+## 1. You Receive: UI -> AI Request
+When the UI team (Morsy/Ezat) triggers a code generation, they will send this payload to your API. You need to parse this into a prompt for Ollama:
 
 ```json
 {
@@ -14,14 +14,12 @@ When the user highlights code and right-clicks "Generate Test", you must capture
 }
 ```
 
-## 2. You Receive: DevOps -> UI Result
-After the AI generates the code and the DevOps team (Habashy/Hossam) executes the Maven test locally, they will return this payload for your UI to display (e.g., showing a green checkmark or a red error message):
+## 2. You Send: AI -> DevOps Response
+After your API queries Ollama and formats the response, you must return this payload back to the DevOps/Execution team (Habashy/Hossam) so they can save and run it:
 
 ```json
 {
-  "executionStatus": "FAILED",
-  "compileError": false,
-  "failedLine": 42,
-  "errorMessage": "Expected <100.0> but was <90.0>"
+  "status": "success",
+  "generatedCode": "package com.store.billing;\nimport org.junit.jupiter.api.Test; ..."
 }
 ```
