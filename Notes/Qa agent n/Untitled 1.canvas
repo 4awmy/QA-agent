@@ -1,8 +1,0 @@
-{
-	"nodes":[
-		{"id":"5191ac436f27ce9c","x":185,"y":1041,"width":250,"height":60,"type":"text","text":""},
-		{"id":"fa0534e71d3ce1e0","x":0,"y":558,"width":400,"height":400,"type":"file","file":"Welcome.md"},
-		{"id":"19a1d4a9332ad967","x":185,"y":1041,"width":250,"height":60,"type":"text","text":""}
-	],
-	"edges":[]
-}
